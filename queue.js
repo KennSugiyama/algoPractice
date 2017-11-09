@@ -61,9 +61,9 @@ Queue.prototype.enqueue = function(value) {
   //IF capacity not reached
   if (this._count < this._capacity) {;
     // THEN add value to the storage {count: value}
-    this._storage[this._count] = value;
+    this._storage[this._count++] = value;  //Decrement the tail.
     // count++
-    this._count += 1;
+    // this._count += 1;  No longer needed because decremented
     //return length of stack (count)
     return this._count;
   } else {
@@ -79,10 +79,8 @@ Queue.prototype.dequeue = function() {
   for (let prop in this._storage) {
    this._storage[prop] = this._storage[parseInt(prop) + 1];
   }
-  // delete last entry
-  delete this._storage[this._count - 1];
-  // subtract count
-  this._count -= 1;
+  // delete last entry & decrement count
+  delete this._storage[--this._count];
   // return the value
   return dequeueValue;
 };
