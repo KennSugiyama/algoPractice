@@ -62,18 +62,28 @@ Stack.prototype.push = function(value) {
   //IF capacity not reached
   if (this._count < this._capacity) {
     // THEN add value to the storage {count: value}
-    this._storage[this._count] = value
+    this._storage[this._count] = value;
     // count++
-    this._count += 1
+    this._count += 1;
     //return length of stack (count)
-    return this._count
+    return this._count;
   } else {
     //ELSE throw error
   }
 };
 
 Stack.prototype.pop = function() {
-  // implement me...
+  Stack.prototype.pop = function() {
+  // Go to last _storage key. (key: this._count)
+  let popValue = (this._storage[this._count - 1]);
+  // delete that property
+  delete this._storage[this._count - 1];
+  // subtract 1 from count
+  this._count -= 1;
+  // return the value
+  return popValue;
+};
+
 };
 // Time complexity:
 
