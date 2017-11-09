@@ -1,5 +1,4 @@
 /*
-
 Credit: https://github.com/kuychaco/algoClass/blob/master/data-structures/stack.js
 
 STACK
