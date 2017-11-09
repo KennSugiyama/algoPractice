@@ -72,7 +72,6 @@ Stack.prototype.push = function(value) {
 };
 
 Stack.prototype.pop = function() {
-  Stack.prototype.pop = function() {
   // Go to last _storage key. (key: this._count)
   let popValue = (this._storage[this._count - 1]);
   // delete that property
@@ -81,8 +80,6 @@ Stack.prototype.pop = function() {
   this._count -= 1;
   // return the value
   return popValue;
-};
-
 };
 // Time complexity:
 
