@@ -67,13 +67,24 @@ Queue.prototype.enqueue = function(value) {
     //return length of stack (count)
     return this._count;
   } else {
-    throw(`Capacity Reached! Capacity: ${this._capacity}`)
+    throw(`Capacity Reached! Capacity: ${this._capacity}`);
   }
 };
 // Time complexity:
 
 Queue.prototype.dequeue = function() {
-  // implement me...
+  // Go to _storage key=0 and assign value to variable
+  let dequeueValue = this._storage[0];
+  // loop through through properties and reassign values to next value
+  for (let prop in this._storage) {
+   this._storage[prop] = this._storage[parseInt(prop) + 1];
+  }
+  // delete last entry
+  delete this._storage[this._count - 1];
+  // subtract count
+  this._count -= 1;
+  // return the value
+  return dequeueValue;
 };
 // Time complexity:
 
