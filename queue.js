@@ -52,11 +52,23 @@ What's the time complexity?
  */
 
 function Queue(capacity) {
-  // implement me...
+  this._capacity = capacity || Infinity;
+  this._storage = {};
+  this._count = 0;
 }
 
 Queue.prototype.enqueue = function(value) {
-  // implement me...
+  //IF capacity not reached
+  if (this._count < this._capacity) {;
+    // THEN add value to the storage {count: value}
+    this._storage[this._count] = value;
+    // count++
+    this._count += 1;
+    //return length of stack (count)
+    return this._count;
+  } else {
+    throw(`Capacity Reached! Capacity: ${this._capacity}`)
+  }
 };
 // Time complexity:
 
