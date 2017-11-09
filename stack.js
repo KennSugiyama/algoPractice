@@ -88,7 +88,10 @@ Stack.prototype.pop = function() {
 // Time complexity:
 
 Stack.prototype.peek = function() {
-  // implement me...
+  // Go to last _storage key. (key: this._count)
+  let popValue = (this._storage[this._count - 1]);
+  // return the value
+  return popValue;
 };
 // Time complexity:
 
