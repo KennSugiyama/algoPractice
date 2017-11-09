@@ -73,11 +73,16 @@ Stack.prototype.push = function(value) {
 
 Stack.prototype.pop = function() {
   // Go to last _storage key. (key: this._count)
-  let popValue = (this._storage[this._count - 1]);
+  let popValue = (this._storage[--this._count]);
+                        //decrement count before statement execution. <3
   // delete that property
   delete this._storage[this._count - 1];
   // subtract 1 from count
-  this._count -= 1;
+  //this._count -= 1 //Don't need because of decremented above ;
+  // Because decremented, need to ensure never less than 0
+  if (this._count < 0) {
+    this._count = 0
+  }
   // return the value
   return popValue;
 };
