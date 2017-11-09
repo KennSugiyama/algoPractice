@@ -89,11 +89,11 @@ Queue.prototype.dequeue = function() {
 // Time complexity:
 
 Queue.prototype.peek = function() {
-  // implement me...
+  return (this._storage[this._count - 1]);
 };
 
 Queue.prototype.count = function() {
-  // implement me...
+  return this._count;
 };
 // Time complexity:
 
