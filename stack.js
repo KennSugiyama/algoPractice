@@ -96,7 +96,7 @@ Stack.prototype.peek = function() {
 // Time complexity:
 
 Stack.prototype.count = function() {
-  // implement me...
+  return this._count;
 };
 // Time complexity:
 
