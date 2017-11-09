@@ -68,7 +68,7 @@ Stack.prototype.push = function(value) {
     //return length of stack (count)
     return this._count;
   } else {
-    //ELSE throw error
+    throw(`Stack Overflow! Stack capacity: ${this._capacity}`)
   }
 };
 
