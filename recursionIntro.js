@@ -111,3 +111,16 @@ let recursiveReverse = function(arr, result = []) {
 
 //console.log(recursiveReverse([1,2,3,4,5]))
 
+//6.3
+let recursiveReverse2 = function(arr) {
+  if(arr.length === 0) {
+    return arr
+  } else {
+    let last = arr.pop()
+    recursiveReverse2(arr)
+    arr.unshift(last)
+  }
+  return arr
+}
+
+//console.log(recursiveReverse2([1,2,3,4,5]))
