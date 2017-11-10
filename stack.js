@@ -55,16 +55,12 @@ function Stack(capacity) {
   this._capacity = capacity || Infinity;
   this._storage = {};
   this._count = 0;
+  this._minStack = {};
 }
 
 Stack.prototype.push = function(value) {
-  //IF capacity not reached
   if (this._count < this._capacity) {
-    // THEN add value to the storage {count: value}
-    this._storage[this._count] = value;
-    // count++
-    this._count += 1;
-    //return length of stack (count)
+    this._storage[this._count++] = value;  //increment count
     return this._count;
   } else {
     throw(`Stack Overflow! Stack capacity: ${this._capacity}`)
@@ -97,6 +93,73 @@ Stack.prototype.count = function() {
   return this._count;
 };
 // Time complexity:
+
+
+
+// MinStack to track min values!
+
+function minStack(capacity) {
+  this._capacity = capacity || Infinity;
+  this._storage = {};
+  this._count = 0;
+  this._min = new Stack();
+}
+
+minStack.prototype.push = function(value) {
+  if (this._count < this._capacity) {
+      if (this._min.peek() < value) {
+        this._min.push(this._min.peek())
+      } else {
+        this._min.push(value)
+      }
+    this._storage[this._count++] = value;
+    return this._count;
+  }
+  throw(`Stack Overflow! Stack capacity: ${this._capacity}`)
+};
+
+
+minStack.prototype.pop = function() {
+  let popValue = (this._storage[--this._count]);
+  delete this._storage[this._count];
+  delete this._min._storage[--this._min._count];
+  if (this._count < 0) {
+    this._count = 0
+  }
+  return popValue;
+};
+
+
+minStack.prototype.peek = function() {
+  return (this._storage[this._count - 1]);
+};
+// Time complexity:
+
+minStack.prototype.count = function() {
+  return this._count;
+};
+
+
+minStack.prototype.min = function() {
+  return this._min.peek();
+}
+
+var mini = new minStack();
+mini.push(5)
+mini.push(6)
+mini.push(3)
+mini.push(2)
+mini.push(10)
+mini.push(2)
+mini.push(9)
+mini.push(8)
+mini.push(1)
+mini.push(0)
+
+
+
+
+
 
 
 /*
