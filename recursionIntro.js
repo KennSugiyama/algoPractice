@@ -62,7 +62,7 @@ let recursiveMultiplier = function(arr, num, result = []){
     return result
   } else {
     result.push(arr.shift() * num)
-    return recursiveMultiplier2(arr, num, result)
+    return recursiveMultiplier(arr, num, result)
   }
 }
 
