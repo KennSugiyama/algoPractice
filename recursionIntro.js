@@ -66,8 +66,24 @@ let recursiveMultiplier = function(arr, num, result = []){
   }
 }
 
-
 console.log(recursiveMultiplier([1,2,3,4], 10))
+
+
+
+//5.3
+let recursiveMultiplier2 = function(arr, num){
+  if (arr.length === 0) {
+    return arr;
+  } else {
+    let last = arr.pop();
+    recursiveMultiplier2(arr, num)
+    arr.push(last * num)
+  }
+  return arr
+}
+
+
+console.log(recursiveMultiplier2([1,2,3,4], 10))
 
 //6. Write a function 'recursiveReverse' that takes an array and uses recursion to return its contents in reverse
 
