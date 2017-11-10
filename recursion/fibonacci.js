@@ -11,7 +11,7 @@ What is the time complexity? Can you think of optimizing your solution? (Hint: l
 //Vanilla
 let fib = function(num) {
   // create and array [0, 1]
-  let fibArray = [0,1]
+  let fibArray = [1,1]
   // IF num is less than three, return array[i]
   if (num <= 2) return fibArray[num - 1]
   // create counter var = 2
@@ -27,10 +27,35 @@ let fib = function(num) {
 }
 
 
-console.log(fib(1)) //0
-console.log(fib(2)) //1
-console.log(fib(3)) //1
-console.log(fib(4)) //2
-console.log(fib(5)) //3
+
+// 1 1 2 3 5 8 13
+
+// console.log(fib(1)) //0
+// console.log(fib(2)) //1
+// console.log(fib(3)) //1
+// console.log(fib(4)) //2
+// console.log(fib(5)) //5
+// console.log(fib(13))//233
+// console.log(fib(17)) //1597
 
 //Recursive
+let fibRecursive = function (num, fibArray = [1,1]) {
+  if (num <= 2) {
+    return fibArray[num - 1]
+  } else {
+    fibArray.push(fibArray[fibArray.length - 1] + fibArray[fibArray.length - 2]);
+    fibRecursive(num - 1, fibArray)
+  }
+  return fibArray[fibArray.length - 1]
+}
+
+
+// 0 1 1 2
+
+//console.log(fibRecursive(1)) //0
+// console.log(fibRecursive(2)) //1
+// console.log(fibRecursive(3)) //1
+// console.log(fibRecursive(4)) //2
+//console.log(fibRecursive(5)) //3
+// console.log(fibRecursive(13))//233
+//console.log(fibRecursive(17)) //1597
