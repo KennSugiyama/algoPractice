@@ -55,7 +55,6 @@ function Stack(capacity) {
   this._capacity = capacity || Infinity;
   this._storage = {};
   this._count = 0;
-  this._minStack = {};
 }
 
 Stack.prototype.push = function(value) {
@@ -96,7 +95,8 @@ Stack.prototype.count = function() {
 
 
 
-// MinStack to track min values!
+/* MinStack to track min values!
+1. Implement a stack with a min method which returns the minimum element currently in the stack. This method should have O(1) time complexity. Make sure your implementation handles duplicates. */
 
 function minStack(capacity) {
   this._capacity = capacity || Infinity;

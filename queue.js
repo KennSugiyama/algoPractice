@@ -58,13 +58,8 @@ function Queue(capacity) {
 }
 
 Queue.prototype.enqueue = function(value) {
-  //IF capacity not reached
   if (this._count < this._capacity) {;
-    // THEN add value to the storage {count: value}
-    this._storage[this._count++] = value;  //Decrement the tail.
-    // count++
-    // this._count += 1;  No longer needed because decremented
-    //return length of stack (count)
+    this._storage[this._count++] = value;  //Increment the tail.
     return this._count;
   } else {
     throw(`Capacity Reached! Capacity: ${this._capacity}`);
@@ -73,15 +68,11 @@ Queue.prototype.enqueue = function(value) {
 // Time complexity:
 
 Queue.prototype.dequeue = function() {
-  // Go to _storage key=0 and assign value to variable
   let dequeueValue = this._storage[0];
-  // loop through through properties and reassign values to next value
   for (let prop in this._storage) {
    this._storage[prop] = this._storage[parseInt(prop) + 1];
   }
-  // delete last entry & decrement count
   delete this._storage[--this._count];
-  // return the value
   return dequeueValue;
 };
 // Time complexity:
